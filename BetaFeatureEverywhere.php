@@ -3,7 +3,7 @@
 $wgExtensionCredits['betafeatures'][] = array(
   'path' => __FILE__,
   'name' => 'BetaFeatureEverywhere',
-  'version' => '0.0.1',
+  'version' => '0.0.2',
   'author' => 'Mikael Korpela',
   'description' => 'Force MediaWiki beta features for everyone everywhere everytime.'
 );
