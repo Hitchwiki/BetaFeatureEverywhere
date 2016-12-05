@@ -9,8 +9,11 @@ class BetaFeatureEverywhereHooks {
   * @return array $options
   */
   static function everywhere( $user, &$options) {
-    global $wgDefaultUserOptions, $wgHiddenPrefs, $wgBetaFeaturesEverywhere;
-    global $wgBetaFeaturesWhitelist, $wgBetaFeaturesWhitelistLoggedIn, $wgUser;
+    global $wgDefaultUserOptions,
+           $wgHiddenPrefs,
+           $wgBetaFeaturesEverywhere,
+           $wgBetaFeaturesWhitelist,
+           $wgBetaFeaturesWhitelistLoggedIn;
 
     $features = array(
       'betafeatures-vector-compact-personal-bar',
@@ -25,7 +28,7 @@ class BetaFeatureEverywhereHooks {
     // Why this magic works: https://github.com/wikimedia/mediawiki-extensions-BetaFeatures/blob/3beab25f9d28e99b8d2ee2186c28125c3e0dcf80/includes/BetaFeaturesUtil.php#L35
     if( isset($wgBetaFeaturesWhitelist) && is_array($wgBetaFeaturesWhitelist) &&
       isset($wgBetaFeaturesWhitelistLoggedIn) && is_array($wgBetaFeaturesWhitelistLoggedIn) && 
-      $wgUser->isLoggedIn()
+      isset($user)
     ) {
       $wgBetaFeaturesWhitelist = array_merge($wgBetaFeaturesWhitelist, $wgBetaFeaturesWhitelistLoggedIn);
     }
